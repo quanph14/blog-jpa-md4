@@ -1,7 +1,15 @@
 package com.codegym.blog.repository.blog;
 
 import com.codegym.blog.model.Blog;
-import com.codegym.blog.repository.IGeneralRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
 
-public interface IBlogRepository extends IGeneralRepository<Blog> {
+
+
+@Repository
+public interface IBlogRepository extends PagingAndSortingRepository<Blog, Long> {
+
+    Page<Blog> findAllByNameContaining(String firstname, Pageable pageable);
 }

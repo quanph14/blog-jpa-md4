@@ -1,13 +1,11 @@
 package com.codegym.blog.service;
 
-import com.codegym.blog.model.Blog;
-
-import java.util.List;
+import java.util.Optional;
 
 public interface IGeneralService<T> {
-    List<T> findAll();
+    Iterable<T> findAll();
 
-    T findById(Long id);
+    Optional<T> findById(Long id);
 
     void save(T t);
 
